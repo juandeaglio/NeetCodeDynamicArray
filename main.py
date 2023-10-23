@@ -8,18 +8,6 @@ class DynamicArray:
     def get(self, i: int) -> int:
         return self.data[i]
 
-    def findTrueIndexAtIndex(self, i):
-
-        count = 0
-        index = 0
-        while index < self.getCapacity():
-            if self.data[index] is not None:
-                count += 1
-                if i + 1 == count:
-                    return index
-
-            index += 1
-
     def set(self, i: int, n: int) -> None:
         self.data[i] = n
 
@@ -29,22 +17,6 @@ class DynamicArray:
 
         self.data[self.size] = n
         self.size += 1
-
-
-    def findFirstElementReverse(self, element=None, comparator=0):
-
-        def comparison_function(value):
-            return value == element if comparator == 0 else value != element
-
-        index = 0
-        reverseIndex = -1
-
-        while True:
-            reverseIndex = len(self.data) - 1 - index
-            value = self.data[reverseIndex]
-            if reverseIndex < 0 or comparison_function(self.data[reverseIndex]):
-                return reverseIndex
-            index += 1
 
     def popback(self) -> int:
         self.size -= 1
